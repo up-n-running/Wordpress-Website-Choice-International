@@ -1,0 +1,791 @@
+/*
+Theme Name:     up-n-running tweaks for Twenty Seventeen
+Theme URI:      https://www.up-n-running.co.uk
+Description:    A Twenty Seventeen child theme developed to allow all stylesheet colours to be changed in the admin console to give the store manager more control over the look and feel. Plus five extra theme customizations: a custom social links menu, a personalized site footer message, dynamic one page navigation, custom front page sidebars, and a large featured image.
+Author:         John Milner
+Author URI:     https://www.upnrunning.co.uk
+License:        GNU General Public License v2 or later
+License URI:    http://www.gnu.org/licenses/gpl-2.0.html
+Template:       twentyseventeen
+Version:        1.12
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400');
+
+/* General */
+.entry-content blockquote {
+    font-size: 16px;
+}
+
+.entry-content blockquote cite {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/*THIS MIGHT BE USEFUL https://allaboutbasic.com/2016/12/22/twenty-seventeen-theme-modifications-of-header-footer-sidebar-contents-and-documentations/ */
+/* Force sticky navigation into position */
+#page-header {
+  margin-bottom: 0 !important;
+}
+/* Force header image to full height */
+
+#custom-header-media {
+  height: 100vh;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 48em) {
+  .has-header-image.twentyseventeen-front-page .site-branding,
+  .has-header-video.twentyseventeen-front-page .site-branding,
+  .has-header-image.home.blog .site-branding,
+  .has-header-video.home.blog .site-branding {
+    bottom: 0;
+    display: block;
+    left: 0;
+    height: auto;
+    padding-top: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+/* upnrunning extras */
+/* Navigation Menu */
+.colors-custom .main-navigation a:hover,
+.colors-custom .current-menu-item > a{
+    /* text-shadow:0px 0px 2px #fff; */
+    text-shadow:
+       -0.75px -0.75px 1px #cee9f5,
+        0   -0.75px 1px #cee9f5,
+        0.75px -1px 1px #cee9f5,
+        0.75px  0   1px #cee9f5,
+        0.75px  0.75px 1px #cee9f5,
+        0    0.75px 1px #cee9f5,
+       -0.75px  0.75px 1px #cee9f5,
+       -0.75px  0   1px #cee9f5;
+}
+
+/* ------ Start FAQ Accordian ------- */
+/* Code baed on code from Webdevtrick ( https://webdevtrick.com ) */
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+.site-content .accordion-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.site-content .accordion-container {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 4em;
+}
+.site-content .accordion-container {
+  margin: 0 auto;
+}
+
+.site-content .accordion-container .accordion .title a {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 3rem 1rem 0rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e5e5e5;
+}
+.site-content .accordion-container .accordion .title a:hover,
+.site-content .accordion-container .accordion .title a:hover::after {
+  cursor: pointer;
+  color: #ff5353;
+  border-bottom: 1px solid #ff5353;
+}
+.site-content .accordion-container .accordion .title a:hover::after {
+  border: 1px solid #ff5353;
+}
+.site-content .accordion-container .accordion .title a.active {
+  color: #ff5353;
+  border-bottom: 1px solid #ff5353;
+}
+.site-content .accordion-container .accordion .title a::after {
+  font-family: 'Ionicons';
+  content: '+';
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 18px;
+  color: #7288a2;
+  padding: 5px;
+  padding-top: 0px;padding-left: 6px;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #7288a2;
+  text-align: center;
+}
+.site-content .accordion-container .accordion .title a.active::after {
+  font-family: 'Ionicons';
+  content: '-';
+  color: #ff5353;
+  border: 1px solid #ff5353;
+}
+.site-content .accordion-container .accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  clear: both;
+  -webkit-transition: all 0.2s ease 0.15s;
+  -o-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
+}
+
+.site-content .accordion-container .accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  -webkit-transition: all 0.35s ease 0.15s;
+  -o-transition: all 0.35s ease 0.15s;
+  transition: all 0.35s ease 0.15s;
+}
+/* ------ End FAQ Accordian ------- */
+
+
+/* upnrunning extras */
+body strong {
+        font-weight: 600;   
+}
+
+form label {
+        font-weight: 600;  
+}
+
+/* ------ WP Forms Styling ------- */
+
+div.wpforms-container-full .wpforms-form input.wpforms-field-medium, div.wpforms-container-full .wpforms-form select.wpforms-field-medium, div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium {
+    max-width: 100%;
+}
+
+.entry-content div.wpforms-container-full .wpforms-form .wpforms-field-label {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.colors-custom div.wpforms-container-full .wpforms-form .wpforms-field-label {
+    color: #002f44;
+}
+
+.colors-custom div.wpforms-container-full .wpforms-form button, 
+.colors-custom div.wpforms-container-full .wpforms-form input[type="button"],
+.colors-custom div.wpforms-container-full .wpforms-form input[type="submit"]
+{
+    background-color: #1d5c79;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 800;
+}
+
+.colors-custom div.wpforms-container-full .wpforms-form button:hover, 
+.colors-custom div.wpforms-container-full .wpforms-form input[type="button"]:hover,
+.colors-custom div.wpforms-container-full .wpforms-form input[type="submit"]:hover
+{
+    background-color: #e07b2f;
+    color: #ffffff;
+}
+
+.colors-custom .wpforms-confirmation-container-full, div[submit-success] > .wpforms-confirmation-container-full {
+    background-color: #6c8759;
+    color: #002f44;
+    font-weight: 700;
+    margin: 0 auto 24px;
+    padding: 15px 15px;
+    text-align: center;
+    border: 1px solid #002f44;
+}
+
+body.hide-featured-image .single-featured-image-header img {
+    display: none;
+    margin: auto;
+}
+
+
+/* Bespoke Javascript Calendar to go on events page */
+.upnrunning-calendar * {
+  margin: 0;
+  padding: 0;
+}
+
+.upnrunning-calendar {
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.upnrunning-calendar fieldset {
+  padding: 1rem;
+  border: none;
+}
+
+.upnrunning-calendar #calendar {
+  /* width: 350px; */
+}
+
+.upnrunning-calendar div.month-and-year {
+  margin-bottom: 9px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.8px;
+  color: #002f44;
+  background-color: #dddddd;
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.upnrunning-calendar .labels span {
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #002f44;
+}
+
+.upnrunning-calendar label {
+  display: inline-block;
+  padding-right: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.upnrunning-calendar .labels span {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #547566;
+}
+
+.upnrunning-calendar .labels, .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: right;
+  justify-items: center;
+  grid-gap: 2px;
+}
+
+.upnrunning-calendar .labels .hilight {
+  /* background-color: #dddddd; */
+  color: #002f44;
+  font-weight: 600;
+}
+
+.upnrunning-calendar .dates span {
+  height: 45px;
+  width: 45px;
+  font-size: 13px;
+  letter-spacing: -1px;
+  border: 1px solid #e6e4e4;
+  color: #9d9d9d;
+  padding-right: 3px;
+  font-weight: 400;
+}
+.upnrunning-calendar .dates span.empty {
+  border: none;
+}
+.upnrunning-calendar .dates span.hilight {
+  background-color: #dddddd;
+  color: #002f44;
+}
+.upnrunning-calendar .dates span.hilight p {
+  padding-top: 4px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Events Manager Category List*/
+.em-categories-list {
+    list-style: none;
+}
+
+/*General */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.shadowfilter {
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(204, 117, 18, 0.7));
+     filter: drop-shadow(6px 6px 4px rgba(204, 117, 18, 0.7));
+}
+
+.shadowfilteronhover:hover{
+    outline: none;
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(204, 117, 18, 0.7));
+     filter: drop-shadow(6px 6px 4px rgba(204, 117, 18, 0.7));
+     cursor: pointer;
+}
+
+/* Tweaking Headings Sizes */
+h2 {color: red;}
+
+@media screen and (min-width: 30em) {    
+    .single-post .entry-title, 
+    .page .entry-title,
+    h2, 
+    .home.blog .entry-title, 
+    .page .panel-content .recent-posts .entry-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: red;
+    }
+}
+
+/* Events Details Page */
+
+.event-details .calendar-container {
+        width: 339px; 
+        padding-left: 10px; 
+        float: right; 
+        background-color: white;
+}
+
+.event-details .calendar-container h5 {
+        padding-top:0px;
+        margin-bottom: 7px;
+        letter-spacing: 0.8px; 
+        font-weight: 600; 
+        font-size: 14px; 
+        text-align: center; 
+        color: #002f44; 
+        font-family: 'Libre Franklin', 'Helvetica Neue', helvetica, arial, sans-serif;
+}
+
+@media screen and ( max-width: 48em ) {
+    .event-details .calendar-container {
+            width: 100%; 
+            padding: 0px 0px 13px 0px; 
+            float: none;
+            text-align: center;
+    }
+    .upnrunning-calendar .dates span {
+        width: 100%;
+    }
+}
+@media screen and ( max-width: 400px ) {
+    .upnrunning-calendar .dates span {
+      height: 35px;
+      width: 100%; /* 35px; */
+      font-size: 11px;
+    }
+    .event-details .calendar-container h5 {
+        font-size: 12px; 
+    }
+}
+
+
+.event-details .nav-previous-box {
+        height: 26px;
+        vertical-align: top;
+}
+
+.event-details .booking-status-box {
+        min-width: 320px;
+        overflow-x:hidden;
+        border-radius: 8px;
+        background-color: #fff1d4;
+        padding-bottom: 3px;
+}
+
+.event-details .booking-status-box p {
+        padding: 10px 0px 10px 10px;
+        margin-bottom: 0px;
+}
+.event-details .booking-status-box strong {
+        color: #002f44;
+        font-weight: 600;
+}
+.event-details .booking-status-box h3 {
+        color: #002f44;
+        font-weight: 600;
+        padding-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+}
+
+.event-details div.booking-status-box.out-of-date .greyedout p,
+.event-details div.booking-status-box.out-of-date .greyedout a,
+.event-details div.booking-status-box.out-of-date .greyedout a:hover,
+.event-details div.booking-status-box.out-of-date .greyedout strong,
+.event-details div.booking-status-box.out-of-date .greyedout h3,
+.event-details div.booking-status-box.out-of-date .greyedout div,
+.event-details div.booking-status-box.out-of-date .greyedout span{
+    color: rgba(0.6, 0.6, 0.6, 0.3);
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.event-details .zoom-status-box {
+    margin-left: 4px;
+}
+
+.event-details .zoom-status-logo {
+	    float: left;
+	    width: 95px;
+	    height: 95px;
+	    background-size: 95px 95px;
+	    background-position: top left;
+	    padding: 0px;
+}
+
+.event-details .event-details a.zoom-status-logo,
+.entry-content .event-details a.zoom-status-logo:hover
+{
+	    display: block;
+	    box-shadow: none;
+	    -webkit-box-shadow: none;
+}
+
+.event-details .zoom-status-logo.login {
+    	background-image: url('assets/img/zoom-login.png');
+}
+.event-details .zoom-status-logo.no-booking-open {
+    	background-image: url('assets/img/zoom-no-booking.png');
+}
+.event-details .zoom-status-logo.no-booking-closed {
+    	background-image: url('assets/img/zoom-no-booking-closed.png');
+}
+.event-details .zoom-status-logo.awaiting-payment-open {
+    	background-image: url('assets/img/zoom-pending.png');
+}
+.event-details .zoom-status-logo.awaiting-payment-closed {
+    	background-image: url('assets/img/zoom-no-booking-closed.png');
+}
+.event-details .zoom-status-logo.confirmed.nozoom {
+    	background-image: url('assets/img/zoom-no-video-link.png');
+}
+.event-details .zoom-status-logo.confirmed.waiting{
+    	background-image: url('assets/img/zoom-waiting.png');
+}
+.event-details .zoom-status-logo.confirmed.active {
+    	background-image: url('assets/img/zoom-ready.png');
+}
+.event-details .zoom-status-logo.confirmed.active:hover {
+    	background-image: url('assets/img/zoom-ready-hover.png');
+    	cursor: pointer;
+}
+.event-details .zoom-status-logo.confirmed.finished {
+    	background-image: url('assets/img/zoom-finished.png');
+}
+
+.event-details div.zoom-status-text {
+		padding-left: 103px;
+		padding-top: 5px;
+		min-height: 95px;
+}
+
+@media screen and ( min-width: 48em ) and ( max-width: 900px ) {
+    .event-details .zoom-status-logo {
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+        margin-top: 7px;
+    }
+    .event-details div.zoom-status-text {
+        padding-left: 36px;
+    }
+}
+@media screen and ( max-width: 400px ) {
+    .event-details .zoom-status-logo {
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+        margin-top: 7px;
+    }
+    .event-details div.zoom-status-text {
+        padding-left: 36px;
+    }
+    .event-details .booking-status-box {
+        min-width: 260px;
+    }
+}
+
+.event-details .zoom-status-text div.zoom-status-title {
+        color: #002f44;
+        font-weight: 600;
+        padding-bottom: 14px;
+        text-decoration: underline;
+}
+
+.event-details .event-description {
+        min-width: 320px;
+        padding-top: 29px;
+}
+
+.event-details .event-categories {
+        padding-top: 15px;
+        float:right;
+        z-index:-1;
+}
+
+.event-details .event-categories ul {
+        list-style: none; 
+}
+
+.event-details .event-categories ul li a {
+        /* Disable Hyperlink */
+        pointer-events: none;
+        cursor: default;
+}
+
+.event-details .event-categories ul li a img {
+        max-width: 349px;
+        height: auto;
+}
+
+/* ajax booking form onsubmit feedback messages */
+.event-details div.em-booking-message {
+    min-width: 300px;
+    overflow-x: hidden;
+    font-weight: 400;
+    padding-top: 60px;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 50px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.event-details div.em-booking-message p {
+    padding: 15px 0px 15px 0px;
+}
+
+.event-details div.em-booking-message-error p {
+    background-color: #FFEBE8;
+    border: 1px solid #850000;
+    color: #850000;
+}
+.event-details div.em-booking-message-error strong {
+    color: #850000;
+}
+
+.event-details div.em-booking-message-success p {
+    background-color: #fff1d4;
+    border: 1px solid #002f44;
+    color: #002f44;
+}
+.event-details div.em-booking-message-success p:empty {
+    background: none;
+    border: none;
+    color: #002f44;
+}
+.event-details div.em-booking-message-success strong {
+    color: #002f44;
+}
+
+/* booking form and login form */
+
+.event-details .form-header-box {
+        width: 100%;
+        background-color:#dddddd;
+        border-radius: 8px;
+        margin-bottom: 29px;
+        padding: 10px;
+}
+
+.event-details .em-booking-login .form-header-box {
+        margin-top: -56px;
+        background: url( 'assets/img/login-box-header-bg.png' ) right top no-repeat #dddddd;
+}
+
+.event-details .form-header-box p.intro {
+        margin-bottom: 0px !important;
+}
+.event-details .form-header-box strong {
+        color: #002f44;
+        font-weight: 600;
+}
+
+.event-details .em-booking-form-details {
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 0px;
+}
+
+.event-details .em-booking-form-details h3,
+.event-details .em-booking-login h3 {
+    display: inline-block;
+    padding-top: 0px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.event-details .em-booking-form-details p,
+.event-details .em-booking-login p,
+.event-details div.em-booking-login p {
+    margin-top: 0px !important;
+    margin-bottom: 20px !important;
+}
+
+.event-details .em-booking-form-details p.intro,
+.event-details .em-booking-login p.intro{
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.event-details .em-booking div.em-booking-login {
+  margin: 0px;
+  float:right;
+  width: 50%;
+  border-left: rgb(230, 228, 228) 1px solid;
+}
+
+.event-details div.em-booking-login {
+    padding-right: 1px;
+}
+
+.event-details .em-booking-login div.login-background {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  min-width: 280px;
+  max-width: 430px;
+  padding-top: 184px;
+}
+
+.event-details .em-booking-form-details label,
+.event-details .em-booking-login-form label {
+        margin-bottom: 0px;
+        width: 100%;
+}
+
+.event-details .em-booking-form-details .input-checkbox label,
+.event-details .em-booking-login-form .input-checkbox label {
+        font-weight: 500;
+}
+
+
+.event-details .em-booking-form-details input.input,
+.event-details .em-booking-form-details select,
+.event-details .em-booking-form-details textarea,
+.event-details .em-booking-login-form input.input
+{
+        width: 100%;
+        margin-right: 0px;
+        min-width: 280px;
+        margin-top: 0px;
+}
+
+
+.event-details .event-details div.em-booking-book > p {
+    font-weight: 700;
+}
+
+.event-details .em-booking-login span.or-overlay {
+    width: 49px;
+    height: 49px;
+    position: relative;
+    left: -45px;
+    top: 31px;
+    z-index: 1;
+}
+
+.event-details .em-booking-login span.or-overlay img {
+    width: 49px;
+    height: 49px;
+}
+
+@media screen and ( max-width: 690px ) {
+    .event-details .em-booking-form-details {
+        width: 100%;
+        padding-right: 0px;
+    }
+    
+    .event-details .em-booking-login .form-header-box {
+        margin-top: 20px;
+    }
+    
+    .event-details .em-booking div.em-booking-login {
+      margin: 0px;
+      float: none;
+      width: 100%;
+      padding-left: 0px;
+      border-left: none;
+      margin-top: 60px;
+    }
+    
+    .event-details .em-booking-login span.or-overlay {
+        left: 13px;
+        top: 55px;
+    }
+    
+    .event-details .em-booking-login div.login-background {
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      min-width: 280px;
+      max-width: 600px;
+      padding-top: 184px;
+    }
+}
+
+
+/* My Bookings Page Styles */
+@media screen and ( max-width: 690px ) {
+    #dbem-bookings-table {
+        font-size: 0.8em;
+    }
+}
+
+/* Calendar Search Page Styles */
+.em-search-field select {
+    width: 100%;
+}
+
+.ui-datepicker {
+    z-index: 5 !important;
+}
+
+
+table.ui-datepicker-calendar td .ui-state-default  {
+    color: #002f44;
+    font-weight: 200;
+}
+table.ui-datepicker-calendar td .ui-state-default.ui-state-highlight {
+    font-weight: bold;
+}
+
+
+/* Theme My Login Styles */
+.tml .tml-action-confirmaction .success, 
+.tml .tml-success {
+    border-left: 4px solid #009952;
+}
+.tml .tml-message {
+    border-left: 4px solid #e29818;
+}
+.tml .tml-error {
+    border-left: 4px solid #dc3232;
+}
