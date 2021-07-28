@@ -9,6 +9,6 @@ https://www.choice-international.com
 \
 \
 <img src="https://github.com/up-n-running/Wordpress-Website-Choice-International/blob/master/screenshots/Picture2Categories.png">\
-/
-/
+\
+\
 <img src="https://github.com/up-n-running/Wordpress-Website-Choice-International/blob/master/screenshots/Picture3AdminConsole.png">\
